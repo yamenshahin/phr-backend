@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMeasurementMetaTable extends Migration
+class CreateUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMeasurementMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('measurement_meta', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('measurement_id');
-            $table->string('key', 100);
-            $table->string('value', 100);
-            $table->unsignedInteger('unit_id');
+            $table->string('unit', 100)->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateMeasurementMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('measurement_meta');
+        Schema::dropIfExists('units');
     }
 }
