@@ -26,8 +26,8 @@ Route::get('/api/users', function() {
 	$users = App\User::all();
     return $users;
 });
-Route::get('/api/measurements', function() {
-	$measurements = App\Measurement::all();
+Route::get('/api/measurements/{user_id}/{name?}', function($user_id, $name = null) {
+	$measurements = App\Measurement::getMeasurement($user_id, $name)->get();
     return $measurements;
 });
 Route::get('/api/measurements', function() {
