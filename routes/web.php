@@ -21,3 +21,24 @@ Route::get('/about', function() {
 Route::get('/documentation', function() {
     return view('documentation');
 });
+//API
+Route::get('/api/users', function() {
+	$users = App\User::all();
+    return $users;
+});
+Route::get('/api/measurements', function() {
+	$measurements = App\Measurement::all();
+    return $measurements;
+});
+Route::get('/api/measurements', function() {
+	$measurements = App\Measurement::all();
+    return $measurements;
+});
+Route::get('/api/measurement_metas', function() {
+	$measurement_meta = App\MeasurementMeta::all();
+    return $measurement_meta;
+});
+Route::get('/api/units', function() {
+	$units = App\Unit::all();
+    return $units;
+});

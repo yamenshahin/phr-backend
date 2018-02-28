@@ -13,7 +13,7 @@ class CreateMeasurementMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('measurement_meta', function (Blueprint $table) {
+        Schema::create('measurement_metas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('measurement_id');
             $table->string('key', 100);
@@ -30,6 +30,6 @@ class CreateMeasurementMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('measurement_meta');
+        Schema::dropIfExists('measurement_metas');
     }
 }
