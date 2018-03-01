@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Measurement extends Model
 {
+    public function measurement_metas() {
+        return $this->hasMany(MeasurementMeta::class);
+    }
     public function scopeGetMeasurement($query, $user_id, $name = null) {
     	if ($name !== null) {
     		$measurements = $query->where('user_id', $user_id)
